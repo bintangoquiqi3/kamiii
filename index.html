@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Bintang dan Annisa Bocil ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6e6;
+            color: #ff4d4d;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .heart {
+            color: #ff4d4d;
+            font-size: 2em;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        .login-container {
+            margin: 20px auto;
+            max-width: 300px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ff4d4d;
+            border-radius: 5px;
+        }
+        .login-container button {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #ff4d4d;
+        }
+        .playlist {
+            margin-top: 30px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .playlist h2 {
+            font-size: 2em;
+            color: #ff4d4d;
+        }
+        .playlist ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .playlist li {
+            font-size: 1.2em;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .playlist li:hover {
+            color: #ff1a1a;
+        }
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-section" class="login-container">
+        <h1>Galeri Bintang dan Annisa  ❤️</h1>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div id="bucin-section" class="hidden">
+        <h1>kenangan <span id="nama-pasangan">bersama</span> ❤️</h1>
+        <div id="pesan-bucin">
+            <p>my <span id="nama-pasangan">Sayangku</span>, kamu adalah bintang di langit malamku. 🌟</p>
+            <p>Setiap detik bersamamu adalah momen terindah. ❤️</p>
+            <p>Aku bersyukur memiliki kamu. 🥰</p>
+            <p>Kamu adalah alasan mengapa aku tersenyum setiap hari. 😊</p>
+            <p>Aku mencintaimu lebih dari apapun. 💖</p>
+            <p>Kamu adalah mimpi yang menjadi kenyataan. 🌙✨</p>
+            <p>Bersamamu, aku merasa seperti di rumah. 🏡</p>
+            <p>Aku tidak bisa membayangkan hidup tanpamu. 💕</p>
+            <p>Kamu adalah segalanya bagiku. 🌹</p>
+            <p>Aku akan selalu mencintaimu, sekarang dan selamanya. 💫</p>
+        </div>
+        <div class="heart">❤️</div>
+        <div class="gallery" id="gallery">
+            <!-- Foto-foto akan dimuat di sini -->
+        </div>
+
+        <!-- Playlist Lagu -->
+        <div class="playlist">
+            <h2></h2>
+            <ul id="playlist">
+                <!-- Daftar lagu akan dimuat di sini -->
+            </ul>
+            <audio id="audio-player" controls>
+                <source src="" type="audio/mpeg">
+                Browser Anda tidak mendukung pemutaran audio.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        // Data login (bisa disesuaikan)
+        const usernameBenar = "bintang pratama E.";
+        const passwordBenar = "annisa fitri khalisa";
+
+        // Data pasangan
+        const namaPasangan = " nama pasangan kamu";
+        const fotoPasangan = [
+            "incess.jpg", "inces4.jpg", "inces3.jpg", "inces2.jpg",
+            "inces6.jpg", "inces5.jpg", "incess.jpg", "inces7.jpg",
+            "inces9.jpg", "inces10.jpg", "inces8.jpg", "incess.jpg",
+            "inces11.jpg", "inces12.jpg", "inces13.jpg", "inces14.jpg",
+            "inces15.jpg", "inces16.jpg", "inces17.jpg", "inces18.jpg",
+            "inces19.jpg", "bersama.jpg", "btg 1.jpg", "btg2.jpg","kami1.jpg",
+            "kami2.jpg","kami3.jpg","kami4.jpg","kami5.jpg","kami6.jpg","kami7.jpg","kami8.jpg","kami9.jpg","kami10.jpg"
+
+        ]; // Ganti dengan nama file foto pasangan kamu
+
+        // Data playlist lagu
+       
+
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === usernameBenar && password === passwordBenar) {
+                // Sembunyikan form login
+                document.getElementById("login-section").classList.add("hidden");
+                // Tampilkan section bucin
+                document.getElementById("bucin-section").classList.remove("hidden");
+                // Isi nama pasangan
+                document.getElementById("nama-pasangan").textContent = namaPasangan;
+                document.getElementById("nama-pasangan").textContent = namaPasangan;
+                // Tampilkan foto-foto dalam grid 4x6
+                const gallery = document.getElementById("gallery");
+                fotoPasangan.forEach(foto => {
+                    const img = document.createElement("img");
+                    img.src = foto;
+                    gallery.appendChild(img);
+                });
+                // Tampilkan playlist lagu
+                const playlistElement = document.getElementById("playlist");
+                playlist.forEach(lagu => {
+                    const li = document.createElement("li");
+                    li.textContent = lagu.judul;
+                    li.onclick = () => playLagu(lagu.file);
+                    playlistElement.appendChild(li);
+                });
+            } else {
+                alert("Username atau password salah! Coba lagi.");
+            }
+        }
+
+        // Fungsi untuk memutar lagu
+        function playLagu(file) {
+            const audioPlayer = document.getElementById("audio-player");
+            audioPlayer.src = file;
+            audioPlayer.play();
+        }
+    </script>
+</body>
+</html>
